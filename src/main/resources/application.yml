@@ -6,11 +6,14 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     show-sql: true
     properties:
       hibernate:
         format-sql: true
       database: postgresql
       database-platform: org.hibernate.dialect.PostgreSQLDialect
+  graphql:
+    graphiql:
+      enabled: true
 
