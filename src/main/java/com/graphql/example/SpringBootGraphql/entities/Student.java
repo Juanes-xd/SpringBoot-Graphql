@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "student")
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
@@ -16,5 +16,6 @@ public class Student {
     private Integer age;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Course.class)
+    @JoinColumn(name = "course_id")
     private Course course;
 }
