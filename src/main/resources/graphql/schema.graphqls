@@ -5,6 +5,20 @@ type Student {
     age: Int
 }
 
+input InputStudent {
+    name: String,
+    lastName: String,
+    age: Int
+    courseId: String!
+}
+
+type Mutation {
+    createStudent(inputStudent: InputStudent) : Student
+}
+
 type Query {
     findStudentById(studentId: String) : Student
+    findAllStudents : [Student]
 }
+
+
