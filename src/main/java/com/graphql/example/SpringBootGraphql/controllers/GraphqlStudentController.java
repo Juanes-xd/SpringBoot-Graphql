@@ -43,9 +43,14 @@ public class GraphqlStudentController {
         student.setName(inputStudent.getName());
         student.setLastName(inputStudent.getLastName());
         student.setAge(inputStudent.getAge());
-       
         student.setCourse(course);
         studentService.createStudent(student);
         return student;
+    }
+@MutationMapping(name = "deleteStudentById")
+    public String deleteStudentById(@Argument(name = "studentId") String id) {
+        Long studentId = Long.parseLong(id);
+        studentService.deleteById(studentId);
+        return "Student with ID: " + studentId + " deleted successfully.";
     }
 }

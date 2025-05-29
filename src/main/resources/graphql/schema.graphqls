@@ -13,12 +13,30 @@ input InputStudent {
 }
 
 type Mutation {
-    createStudent(inputStudent: InputStudent) : Student
+    createStudent(inputStudent: InputStudent!) : Student
+    deleteStudentById(studentId: String) : String
+    # Courses
+    createCourse(inputCourse: InputCourse!) : Course
+    deleteCourseById(courseId: String) : String
 }
 
 type Query {
     findStudentById(studentId: String) : Student
     findAllStudents : [Student]
+    findCourseById(courseId: String) : Course
+    findAllCourses : [Course]
 }
 
+######### Courses #########
+type Course {
+    id: ID,
+    name: String,
+    category: String,
+    teacher: String
+}
 
+input InputCourse {
+    name: String,
+    category: String,
+    teacher: String
+}
